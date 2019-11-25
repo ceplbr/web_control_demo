@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+
+<script src="{% static 'js/easeljs.js' %}"></script>
+<script src="{% static 'js/eventemitter2.js' %}"></script>
+<script src="{% static 'js/roslib.js' %}"></script>
+<script src="{% static 'js/ros2d.js' %}"></script>
+<script src="{% static 'js/nav2d.js' %}"></script>
+
+{% endblock %}
+
+{% block body %}
+    <script src="{% static 'js/control.js' %}"></script>
+    <h1 align="center">Breach Navigation - Touch, drag & release to issue a goal</h1>
+    <div align="center" id="nav"></div>
+{% endblock %}
