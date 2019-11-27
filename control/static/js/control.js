@@ -3,8 +3,10 @@
    */
 function init() {
 // Connect to ROS.
+    var target_ip = location.hostname;
+    var target_url = 'ws://' + String(target_ip) + ':9191';
     var ros = new ROSLIB.Ros({
-        url : 'ws://localhost:9090'
+        url : target_url
     });
 
     // Create the main viewer.
@@ -43,6 +45,8 @@ function init() {
 
         //path.unsubscribe();
     });
+    var target_iframe = '<iframe class="videoframe" src="http://' + target_ip + ':8282/stream?topic=/cv_camera/image_raw"></iframe>';
+    document.getElementById("videofeed").innerHTML=target_iframe;
 }
 
 window.onload = function(e) { init(); }

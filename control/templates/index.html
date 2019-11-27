@@ -13,6 +13,14 @@
 
 {% block body %}
     <script src="{% static 'js/control.js' %}"></script>
-    <h1 align="center">Breach Navigation - Touch, drag & release to issue a goal</h1>
-    <div align="center" id="nav"></div>
+
+    <div class="header">
+        <h1>Breach Navigation &ndash; Touch, drag &amp; release to issue a goal</h1>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn" id="videofeed"></div>
+        <div class="rightcolumn" id="nav"></div>
+    </div>
+    <div class="options">This is options block</div>
 {% endblock %}
