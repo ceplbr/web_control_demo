@@ -121,7 +121,7 @@ var NAV2D = NAV2D || {
         size : 15,
         strokeSize : 1,
         fillColor : createjs.Graphics.getRGB(255, 64, 128, 0.66),
-        pulse : true
+        pulse : false
       });
       goalMarker.x = pose.position.x;
       goalMarker.y = -pose.position.y;
@@ -148,7 +148,7 @@ var NAV2D = NAV2D || {
       size : 25,
       strokeSize : 1,
       fillColor : createjs.Graphics.getRGB(255, 128, 0, 0.66),
-      pulse : true
+      pulse : false
     });
     // wait for a pose to come in first
     robotMarker.visible = false;
