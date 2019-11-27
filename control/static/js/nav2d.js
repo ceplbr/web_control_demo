@@ -108,7 +108,7 @@ var NAV2D = NAV2D || {
         goalMessage : {
           target_pose : {
             header : {
-              frame_id : '/map'
+              frame_id : 'map'
             },
             pose : pose
           }
