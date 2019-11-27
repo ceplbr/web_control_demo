@@ -1,0 +1,10 @@
+<launch>
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+    <node name="robot_pose_publisher" pkg="robot_pose_publisher" type="robot_pose_publisher" />
+    <node pkg="cv_camera" type="cv_camera_node" name="cv_camera"/>
+
+    <node pkg="web_video_server" type="web_video_server" name="web_video_server" output="screen">
+        <param name="port"            value="8181"/>
+        <param name="address"         value="localhost"/>
+    </node>
+</launch>
