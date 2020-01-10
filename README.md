@@ -13,7 +13,7 @@ This runs on target robot
 
 ## Installation (not tested)
 1. Clone this repo
-2. Configure python virtual enviroment (Python 3.6.8)
+2. Configure python virtual enviroment (Python 3.6.8) (run `virtualenv venv` in web_control_demo folder)
 3. Install and Configure Django
 4. Configure Apache (example config in `external_files` can be used)
 5. Run needed nodes on robot (example launchfile in `external_files` can be used)
