@@ -245,8 +245,9 @@ var NAV2D = NAV2D || {
             orientationMarker.rotation = thetaDegrees;
             orientationMarker.scaleX = 1.0 / stage.scaleX;
             orientationMarker.scaleY = 1.0 / stage.scaleY;
-            
-            that.rootObject.addChild(orientationMarker);
+            if (btn_selections.GOAL == window.selected_action) {
+                that.rootObject.addChild(orientationMarker);
+            };
           }
         } else if (mouseDown) { // mouseState === 'up'
           // if mouse button is released
@@ -281,7 +282,42 @@ var NAV2D = NAV2D || {
             orientation : orientation
           });
           // send the goal
-          sendGoal(pose);
+          if (btn_selections.GOAL == window.selected_action) {
+            sendGoal(pose);
+          };
+
+          if (btn_selections.ESTIMATE == window.selected_action) {
+            console.info(console.dir(pose));
+            var pose_est = new ROSLIB.Topic({
+                ros : ros,
+                name : '/initialpose',
+                messageType : 'geometry_msgs/PoseWithCovarianceStamped'
+              });
+            
+            var est_msg = new ROSLIB.Message({
+                header: {
+                  seq : 1,
+                  stamp : {
+                      sec: 0,
+                      nsec: 0
+                  },
+                  frame_id : '/map'
+                },
+                pose : {
+                  pose : {
+                      position : pose.position,
+                      orientation : pose.orientation
+                  },
+                  covariance : [0.05, 0, 0, 0, 0, 0,
+                    0, 0.05, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0.05]
+                }
+              });
+              pose_est.publish(est_msg);
+          };
         }
       };
   

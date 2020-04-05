@@ -14,13 +14,24 @@
 {% block body %}
     <script src="{% static 'js/control.js' %}"></script>
 
-    <div class="header">
-        <h1>Breach Navigation &ndash; Touch, drag &amp; release to issue a goal</h1>
+    <div class="header-bar">
+        <h1>Robot Navigation</h1>
     </div>
-
-    <div class="row">
-        <div class="leftcolumn" id="videofeed"></div>
-        <div class="rightcolumn" id="nav"></div>
+    <div class="row" id='main-body'>
+        <div class="leftcolumn button-col" id="l-controls">
+            <button id='btn_rfu'>-RFU-</button>
+            <button id='btn_lidar'>Lidar On/Off</button>
+            <button id='btn_localize'>Reset pose</button>
+            <button id='btn_shutdown'>Shut down</button>
+        </div>
+        <div class="middlecolumn" id="nav-view">
+            <div id='nav'></div>
+        </div>
+        <div class="rightcolumn button-col" id="r-controls">
+            <button id='btn_pan'>Pan</button>
+            <button id='btn_zoom'>Zoom</button>
+            <button id='btn_estimate'>Set Pose</button>
+            <button id='btn_goal'>2D Goal</button>
+        </div>
     </div>
-    <div class="options"></div>
 {% endblock %}
