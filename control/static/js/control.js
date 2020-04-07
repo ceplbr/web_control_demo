@@ -365,15 +365,15 @@ function init() {
         serviceType : 'std_srvs/Empty'
     });
 
-    var motor_start_client = new ROSLIB.Service({
+    var start_motor_client = new ROSLIB.Service({
         ros : ros,
-        name : '/motor_start',
+        name : '/start_motor',
         serviceType : 'std_srvs/Empty'
     });
 
-    var motor_stop_client = new ROSLIB.Service({
+    var stop_motor_client = new ROSLIB.Service({
         ros : ros,
-        name : '/motor_stop',
+        name : '/stop_motor',
         serviceType : 'std_srvs/Empty'
     });
 
@@ -381,11 +381,11 @@ function init() {
     function toggle_lidar(){
         if (true == lidar_state){
             lidar_state = false;
-            motor_stop_client.callService();
+            stop_motor_client.callService();
         }
         else {
             lidar_state = true;
-            motor_start_client.callService();
+            start_motor_client.callService();
         }
     };
 
