@@ -240,7 +240,7 @@ NavZoomer = function(options) {
 function init() {
 // Connect to ROS.
     var target_ip = location.hostname;
-    var target_url = 'ws://' + String(target_ip) + ':9191';
+    var target_url = 'ws://' + String(target_ip) + ':9090';
     var ros = new ROSLIB.Ros({
         url : target_url
     });
