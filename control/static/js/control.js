@@ -351,6 +351,7 @@ function init() {
         strokeSize : 0.02
     });
 
+    /*
     var local_path = LocalPathHandler({
         ros : ros,
         rootObject : viewer.scene,
@@ -358,6 +359,7 @@ function init() {
         strokeColor : local_plan_color,
         strokeSize : 0.02
     });
+    */
 
     var global_localization_client = new ROSLIB.Service({
         ros : ros,
