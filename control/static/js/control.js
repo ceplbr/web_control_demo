@@ -406,6 +406,26 @@ function init() {
         };
     }
 
+    function cancel_goal(){
+        var cancel_goal_pub = new ROSLIB.Topic({
+            ros : ros,
+            name : '/move_base/cancel',
+            messageType : 'actionlib_msgs/GoalID'
+          });
+        
+        var cancel_msg = new ROSLIB.Message();
+        cancel_goal_pub.publish(cancel_msg);
+
+    }
+
+    document.getElementById('btn_cancel_goal').addEventListener("click", function(){ 
+        cancel_goal();
+    });
+
+    document.getElementById('btn_cancel_goal').addEventListener("touchend", function(){ 
+        cancel_goal();
+    });
+
     document.getElementById('btn_localize').addEventListener("click", function(){ 
         global_localization_client.callService();
     });
